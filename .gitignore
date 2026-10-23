@@ -1,0 +1,21 @@
+# 데이터는 저장소에 올리지 않는다(BIO_DATA_ROOT를 비워 두면 여기에 받는다)
+data/
+*.part
+
+# AWS CLI 설치 파일
+awscliv2.zip
+aws/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 개인 설정
+.env
+
+# AWS 자격 증명이 실수로 저장소에 들어오지 않게 막는다(키는 홈 폴더 ~/.aws/ 에만 둔다)
+.aws/
+*accessKeys*.csv
+*credentials*.csv
+*.pem
