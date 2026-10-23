@@ -42,7 +42,8 @@ git -C /home/$USER/BioRag-VertorDB pull
 tmux new -s 작업이름
 
 # 3) 끝나면 스크립트가 출력한 기록 줄을 RUNS.md '다운로드 기록' 표 맨 아래에 붙여 넣는다
-nano /home/$USER/BioRag-VertorDB/RUNS.md
+#    vim에서 표 마지막 줄로 이동해 o(아래에 새 줄) → 붙여 넣기 → Esc → :wq(저장하고 종료)
+vim /home/$USER/BioRag-VertorDB/RUNS.md
 
 # 4) 기록을 올린다
 git -C /home/$USER/BioRag-VertorDB add RUNS.md
