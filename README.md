@@ -13,7 +13,7 @@ OCR 없이 기계가 바로 읽는 문서(JATS XML·JSON)만으로 생의학 RAG
 id
 
 # 1) 내 홈 폴더에 저장소를 받는다
-#    Private 저장소라 GitHub 아이디와 비밀번호 대신 토큰을 묻는다(아래 '토큰 만들기')
+#    공개 저장소라 clone에는 로그인이 필요 없다. push할 때만 토큰을 묻는다(아래 '토큰 만들기')
 git clone https://github.com/Joonmo-Ahn/BioRag-VertorDB.git /home/$USER/BioRag-VertorDB
 
 # 2) 데이터 저장 위치와 기록에 남을 이름을 셸 설정에 넣는다
@@ -29,7 +29,7 @@ git config --global user.email "내 GitHub 이메일"
 python3 /home/$USER/BioRag-VertorDB/scripts/check_env.py
 ```
 
-- **토큰 만들기**: GitHub 오른쪽 위 프로필 → Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token. Repository access에서 `Joonmo-Ahn/BioRag-VertorDB`만 고르고, Permissions의 Contents를 Read and write로 한다. `git clone`이 Password를 물으면 이 토큰을 붙여 넣는다.
+- **토큰 만들기(push할 사람만)**: 먼저 저장소 주인(Joonmo-Ahn)에게 Collaborator 초대를 받아 수락한다. GitHub 오른쪽 위 프로필 → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token (classic)에서 Expiration을 정하고 scope는 `public_repo` 하나만 고른다. 첫 `git push`가 Username을 물으면 내 GitHub 아이디를, Password를 물으면 이 토큰을 붙여 넣는다. Fine-grained token은 남의 개인 저장소를 고를 수 없어 이 경우에는 classic token을 쓴다.
 - 매번 토큰을 묻지 않게 하려면 `git config --global credential.helper store`를 한 번 실행한다. 토큰이 `/home/$USER/.git-credentials`에 평문으로 저장되므로 공용 계정에서는 쓰지 않는다.
 
 **받을 때마다**
